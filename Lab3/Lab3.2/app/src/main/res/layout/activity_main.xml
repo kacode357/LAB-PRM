@@ -1,0 +1,16 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:padding="10dp">
+
+    <!-- ListView hiển thị danh sách trái cây -->
+    <ListView
+        android:id="@+id/listviewTraiCay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="145dp" />
+
+</RelativeLayout>
