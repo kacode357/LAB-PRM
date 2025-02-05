@@ -5,12 +5,70 @@
     android:id="@+id/main"
     android:padding="10dp">
 
+    <!-- Ô nhập Tên -->
+    <EditText
+        android:id="@+id/edtTen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập tên trái cây"
+        android:padding="8dp"
+        android:background="@android:drawable/editbox_background"
+
+        android:layout_alignParentTop="true"/>
+
+    <!-- Ô nhập Mô tả -->
+    <EditText
+        android:id="@+id/edtMota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập mô tả"
+        android:padding="8dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@id/edtTen"
+     />
+
+    <!-- Ô nhập URL Hình -->
+    <EditText
+        android:id="@+id/edtUrlHinh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập URL hình ảnh"
+        android:padding="8dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@id/edtMota"
+        />
+
+    <!-- Nút Thêm -->
+    <Button
+        android:id="@+id/btnThem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thêm"
+        android:padding="8dp"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:layout_below="@id/edtUrlHinh"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"/>
+
+    <!-- Nút Cập nhật -->
+    <Button
+        android:id="@+id/btnCapNhat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cập nhật"
+        android:padding="8dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:layout_below="@id/edtUrlHinh"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"/>
+
     <!-- ListView hiển thị danh sách trái cây -->
     <ListView
         android:id="@+id/listviewTraiCay"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="145dp" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnThem"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

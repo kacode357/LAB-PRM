@@ -3,9 +3,9 @@ package com.example.lab32;
 public class TraiCay {
     private String Ten;
     private String Mota;
-    private int Hinh;
+    private String Hinh; // Đổi từ int sang String
 
-    public TraiCay(String ten, String mota, int hinh) {
+    public TraiCay(String ten, String mota, String hinh) {
         Ten = ten;
         Mota = mota;
         Hinh = hinh;
@@ -27,11 +27,11 @@ public class TraiCay {
         Mota = mota;
     }
 
-    public int getHinh() {
+    public String getHinh() {
         return Hinh;
     }
 
-    public void setHinh(int hinh) {
+    public void setHinh(String hinh) {
         Hinh = hinh;
     }
 }

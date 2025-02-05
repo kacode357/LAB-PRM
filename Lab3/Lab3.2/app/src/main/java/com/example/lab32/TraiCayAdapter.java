@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class TraiCayAdapter extends BaseAdapter {
@@ -50,9 +51,14 @@ public class TraiCayAdapter extends BaseAdapter {
         TraiCay traiCay = traiCayList.get(position);
         txtTen.setText(traiCay.getTen());
         txtMota.setText(traiCay.getMota());
-        imgHinh.setImageResource(traiCay.getHinh());
+
+        // Dùng Picasso để load ảnh từ URL
+        Picasso.get()
+                .load(traiCay.getHinh()) // URL ảnh
+                .placeholder(R.drawable.noimg) // Ảnh hiển thị trong lúc tải
+                .error(R.drawable.error) // Ảnh hiển thị nếu lỗi
+                .into(imgHinh);
 
         return convertView;
     }
-
 }
