@@ -42,9 +42,12 @@
         <activity android:name=".Question2Lab3Activity"/>
 
         <activity android:name=".Lab4Activity"/>
-<!--        <activity android:name=".Question1Lab4Activity"/>-->
+        <activity android:name=".Question1Lab4Activity"/>
         <activity android:name=".ExtraExerciseLab4Activity"/>
         <activity android:name=".NewActivityLab4Activity"/>
+
+        <activity android:name=".SelectDrinkActivity"/>
+        <activity android:name=".SelectFoodActivity"/>
 
     </application>
 

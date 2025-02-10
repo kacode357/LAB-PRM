@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".Question1Lab4Activity">
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:id="@+id/tvTitleQuestion1Lab4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đặt thức ăn và đồ uống"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:background="#1976D2"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Nút chọn thức ăn -->
+    <Button
+        android:id="@+id/btnChooseFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHỌN THỨC ĂN"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleQuestion1Lab4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Nút chọn đồ uống -->
+    <Button
+        android:id="@+id/btnChooseDrink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHỌN ĐỒ UỐNG"
+        app:layout_constraintTop_toBottomOf="@id/btnChooseFood"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Nút thoát -->
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="THOÁT"
+        app:layout_constraintTop_toBottomOf="@id/btnChooseDrink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Hiển thị thức ăn và đồ uống đã chọn -->
+    <TextView
+        android:id="@+id/tvSelectedFoodDrink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chưa chọn món"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/btnExit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
+
+    <!-- Nút quay lại -->
+    <Button
+        android:id="@+id/btnBackQuestion1Lab4"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:text="⬅"
+        android:textSize="27sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/bg_round_button"
+        app:layout_constraintTop_toTopOf="@id/tvTitleQuestion1Lab4"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

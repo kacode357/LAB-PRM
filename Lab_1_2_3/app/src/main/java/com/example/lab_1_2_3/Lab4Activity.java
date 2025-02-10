@@ -22,16 +22,16 @@ public class Lab4Activity extends AppCompatActivity {
             }
         });
 
-//        // Xử lý sự kiện khi nhấn vào "Question 1"
-//        TextView tvQuestion1 = findViewById(R.id.tvQuestion1Lab4);
-//        tvQuestion1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Lab4Activity.this, Question1Lab4Activity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
+        // Xử lý sự kiện khi nhấn vào "Question 1"
+        TextView tvQuestion1 = findViewById(R.id.tvQuestion1Lab4);
+        tvQuestion1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Lab4Activity.this, Question1Lab4Activity.class);
+                startActivity(intent);
+            }
+        });
+
         // Xử lý sự kiện khi nhấn vào "Bài tập làm thêm"
         TextView tvExtraExercise = findViewById(R.id.tvExtraExerciseLab4);
         tvExtraExercise.setOnClickListener(new View.OnClickListener() {
