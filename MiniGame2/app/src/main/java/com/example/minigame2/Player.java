@@ -8,13 +8,15 @@ public class Player implements Serializable {
     private String name;
     private String dogBreed;
     private String win;
+    private int lottieResourceId; // Thêm trường này
 
     // Constructor
-    public Player(String id, String name, String dogBreed, String win) {
+    public Player(String id, String name, String dogBreed, String win, int lottieResourceId) {
         this.id = id;
         this.name = name;
         this.dogBreed = dogBreed;
         this.win = win;
+        this.lottieResourceId = lottieResourceId; // Khởi tạo tài nguyên Lottie
     }
 
     // Getter and Setter methods
@@ -32,5 +34,9 @@ public class Player implements Serializable {
 
     public String getWin() {
         return win;
+    }
+
+    public int getLottieResourceId() {
+        return lottieResourceId; // Getter cho Lottie resource
     }
 }

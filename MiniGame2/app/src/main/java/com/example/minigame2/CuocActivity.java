@@ -63,12 +63,12 @@ public class CuocActivity extends AppCompatActivity {
 
         // Khởi tạo danh sách người chơi
         players = new ArrayList<>();
-        players.add(new Player("1", "Tinh Dao", "Chó Phú Quốc", "8.2"));
-        players.add(new Player("2", "Player 2", "Chó Becgie", "5.1"));
-        players.add(new Player("3", "Player 3", "Chó Cocker", "10.0"));
-        players.add(new Player("4", "Player 4", "Chó Poodle", "7.5"));
-        players.add(new Player("5", "Player 5", "Chó Rottweiler", "6.8"));
-        players.add(new Player("6", "Player 6", "Chó Pitbull", "9.2"));
+        players.add(new Player("1", "Chó 1", "Chó Phú Quốc", "8.2", R.raw.conchoso1));
+        players.add(new Player("2", "Chó 2", "Chó Becgie", "5.1", R.raw.conchoso2));
+        players.add(new Player("3", "Chó 3", "Chó Cocker", "10.0", R.raw.conchoso3));
+        players.add(new Player("4", "Chó 4", "Chó Poodle", "7.5", R.raw.conchoso4));
+        players.add(new Player("5", "Chó 5", "Chó Rottweiler", "6.8", R.raw.conchoso5));
+        players.add(new Player("6", "Chó 6", "Chó Pitbull", "9.2", R.raw.conchoso6));
 
         // Cấu hình adapter
         playerAdapter = new PlayerAdapter(this, players);
@@ -100,19 +100,30 @@ public class CuocActivity extends AppCompatActivity {
 
                     // Chuyển dữ liệu sang màn hình RaceActivity
                     Intent intent = new Intent(CuocActivity.this, RaceActivity.class);
-                    // Truyền danh sách người chơi đã chọn
                     List<Player> selectedPlayersList = new ArrayList<>();
+                    List<Integer> lottieResourceIds = new ArrayList<>(); // Lưu trữ tài nguyên Lottie
+
                     for (int pos : selectedPlayers) {
-                        selectedPlayersList.add(players.get(pos));
+                        Player player = players.get(pos);
+                        selectedPlayersList.add(player);
+                        lottieResourceIds.add(player.getLottieResourceId()); // Thêm tài nguyên Lottie vào danh sách
                     }
+
+                    // Truyền các thông tin cần thiết vào intent, bao gồm currentMoney
                     intent.putExtra("allPlayers", (java.io.Serializable) players);
                     intent.putExtra("selectedPlayers", (java.io.Serializable) selectedPlayersList);
                     intent.putExtra("currentBet", currentBet);
-                    startActivity(intent);
+                    intent.putExtra("lottieResourceIds", (java.io.Serializable) lottieResourceIds); // Truyền tài nguyên Lottie
+                    intent.putExtra("currentMoney", currentMoney); // Truyền currentMoney sang RaceActivity
+
+                    // Gọi RaceActivity và nhận kết quả
+                    startActivityForResult(intent, 1); // 1 là mã yêu cầu (requestCode)
                 }
             }
         });
+
     }
+
 
     /**
      * Thiết lập sự kiện click cho các đồng xu
@@ -163,4 +174,16 @@ public class CuocActivity extends AppCompatActivity {
     private void updateMoneyDisplay() {
         moneyTextView.setText("MONEY: " + currentMoney + "$");
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK && data != null) {
+            // Nhận số tiền đã được cập nhật từ RaceActivity
+            int updatedMoney = data.getIntExtra("updatedMoney", currentMoney);  // Default value if not found
+            currentMoney = updatedMoney;  // Cập nhật lại số tiền trong CuocActivity
+            updateMoneyDisplay();  // Cập nhật giao diện hiển thị số tiền
+        }
+    }
+
 }
