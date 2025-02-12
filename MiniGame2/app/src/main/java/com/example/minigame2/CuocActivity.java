@@ -33,6 +33,8 @@ public class CuocActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_cuoc);
 
+        currentMoney = getIntent().getIntExtra("currentMoney",1000);
+
         // Khởi tạo UI
         initViews();
         setupRecyclerView();
