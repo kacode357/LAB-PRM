@@ -1,0 +1,12 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Nền trắng -->
+    <solid android:color="#FFFFFF" />
+
+    <!-- Viền đen -->
+    <stroke
+        android:color="#000000"
+        android:width="2dp" /> <!-- Điều chỉnh độ dày viền theo ý muốn -->
+
+    <!-- Các góc bo tròn -->
+    <corners android:radius="4dp" /> <!-- Tạo hình tròn hoàn hảo -->
+</shape>

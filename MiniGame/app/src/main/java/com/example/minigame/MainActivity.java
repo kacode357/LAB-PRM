@@ -4,14 +4,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import androidx.appcompat.app.AppCompatActivity;
-import com.airbnb.lottie.LottieAnimationView;
+import com.bumptech.glide.Glide;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LottieAnimationView horse1, horse2;
+    private ImageView horse1, horse2;
     private SeekBar speedControl;
     private Button startRace;
     private Handler handler = new Handler();
@@ -28,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         horse2 = findViewById(R.id.horse2);
         speedControl = findViewById(R.id.speedControl);
         startRace = findViewById(R.id.startRace);
+
+        // Load GIF ngựa chạy vào ImageView bằng Glide
+        Glide.with(this).asGif().load(R.drawable.jagyasinisinghracing).into(horse1);
+        Glide.with(this).asGif().load(R.drawable.runninggirlcribble).into(horse2);
 
         // Sự kiện khi nhấn nút bắt đầu đua
         startRace.setOnClickListener(new View.OnClickListener() {
@@ -46,20 +51,19 @@ public class MainActivity extends AppCompatActivity {
         horse1.setTranslationX(0);
         horse2.setTranslationX(0);
 
-        // Bắt đầu animation
-        horse1.playAnimation();
-        horse2.playAnimation();
-
         handler.post(new Runnable() {
             @Override
             public void run() {
                 if (!raceRunning) return;
 
+                // Tạo tốc độ ngẫu nhiên cho từng ngựa
                 int speedFactor1 = random.nextInt(5, 15);
                 int speedFactor2 = random.nextInt(5, 15);
 
-                horse1.setTranslationX(horse1.getTranslationX() + speedFactor1);
-                horse2.setTranslationX(horse2.getTranslationX() + speedFactor2);
+                // Điều chỉnh tốc độ theo SeekBar
+                int speedMultiplier = speedControl.getProgress();
+                horse1.setTranslationX(horse1.getTranslationX() + speedFactor1 * (speedMultiplier / 5.0f));
+                horse2.setTranslationX(horse2.getTranslationX() + speedFactor2 * (speedMultiplier / 5.0f));
 
                 float finishLineX = findViewById(R.id.finishLine).getX() - horse1.getWidth();
 
@@ -76,10 +80,6 @@ public class MainActivity extends AppCompatActivity {
     private void checkWinner() {
         raceRunning = false;
         startRace.setEnabled(true);
-
-        // Dừng animation khi cuộc đua kết thúc
-        horse1.pauseAnimation();
-        horse2.pauseAnimation();
 
         if (horse1.getTranslationX() >= findViewById(R.id.finishLine).getX() - horse1.getWidth()) {
             startRace.setText("🏆 Ngựa 1 thắng!");

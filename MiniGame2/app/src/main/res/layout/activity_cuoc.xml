@@ -1,0 +1,140 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgmanhinhcuocc"
+    tools:context=".CuocActivity">
+
+    <!-- Title TextView for Betting -->
+    <TextView
+        android:id="@+id/textViewBetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_border_betting"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="BETTING"
+        android:textColor="#F8F8F8"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- RecyclerView for Player List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPlayers"
+        android:layout_width="0dp"
+        android:layout_height="235dp"
+        android:layout_marginTop="12dp"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/textViewBetting"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/linearLayoutRightSide"
+        app:layout_constraintBottom_toTopOf="@id/coinScrollView"
+        app:layout_constraintVertical_bias="0.0"/>
+
+    <!-- HorizontalScrollView for Coins -->
+    <HorizontalScrollView
+        android:id="@+id/coinScrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewPlayers"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/linearLayoutRightSide"
+        app:layout_constraintHorizontal_bias="0.32">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Coin ImageViews -->
+            <ImageView android:id="@+id/coin_1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="1$ Coin"
+                android:src="@drawable/xu_1"/>
+
+            <ImageView android:id="@+id/coin_5"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="5$ Coin"
+                android:src="@drawable/xu_5"/>
+
+            <ImageView android:id="@+id/coin_10"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="10$ Coin"
+                android:src="@drawable/xu_10"/>
+
+            <ImageView android:id="@+id/coin_25"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="25$ Coin"
+                android:src="@drawable/xu_25"/>
+
+            <ImageView android:id="@+id/coin_50"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="50$ Coin"
+                android:src="@drawable/xu_50"/>
+
+            <ImageView android:id="@+id/coin_100"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="100$ Coin"
+                android:src="@drawable/xu_100"/>
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <!-- Right-Side Panel with Betting Info & Actions -->
+    <LinearLayout
+        android:id="@+id/linearLayoutRightSide"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <!-- Betting Information -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:text="MIN BET: 15$" android:textColor="#000000" android:textSize="18sp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:text="MAX BET: 100$" android:textColor="#000000" android:textSize="18sp"/>
+        <!-- BET Amount Display -->
+        <TextView
+            android:id="@+id/textViewBetAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="BET: 0$"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
+
+        <TextView android:id="@+id/textViewMoney" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:text="MONEY: 1000$" android:textColor="#000000" android:textSize="18sp"/>
+
+        <!-- Betting Action Buttons -->
+        <Button android:id="@+id/buttonClearBet" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:background="#D2CAA8" android:text="CLEAR BET" android:textSize="16sp"/>
+        <Button android:id="@+id/buttonStartRace" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="#D2CAA8" android:text="START RACE" android:textSize="16sp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
