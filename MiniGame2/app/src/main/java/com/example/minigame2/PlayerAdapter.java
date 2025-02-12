@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.airbnb.lottie.LottieAnimationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +40,10 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
         holder.win.setText("Win: " + player.getWin());
         holder.id.setText("" + player.getId());
 
+        // Set Lottie animation for the player
+        holder.lottieAnimationView.setAnimation(player.getLottieResourceId()); // Cập nhật Lottie resource
+        holder.lottieAnimationView.playAnimation(); // Chạy hoạt ảnh
+
         // Kiểm tra nếu đã chọn
         holder.itemView.setSelected(selectedPositions.contains(position));
 
@@ -57,6 +64,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
         });
     }
 
+
     @Override
     public int getItemCount() {
         return players.size();
@@ -68,6 +76,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
 
     public static class PlayerViewHolder extends RecyclerView.ViewHolder {
         TextView name, dogBreed, win, id;
+        LottieAnimationView lottieAnimationView; // Thêm trường Lottie
 
         public PlayerViewHolder(View itemView) {
             super(itemView);
@@ -75,6 +84,8 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
             dogBreed = itemView.findViewById(R.id.player_dog);
             win = itemView.findViewById(R.id.player_win);
             id = itemView.findViewById(R.id.player_id);
+            lottieAnimationView = itemView.findViewById(R.id.player_image); // Liên kết với Lottie view
         }
     }
+
 }
