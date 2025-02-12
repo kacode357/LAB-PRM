@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,6 +30,7 @@ public class CuocActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_cuoc);
 
         // Khởi tạo UI
@@ -82,8 +84,9 @@ public class CuocActivity extends AppCompatActivity {
         buttonStartRace.setOnClickListener(v -> {
             List<Integer> selectedPlayers = playerAdapter.getSelectedPositions();
             if (currentBet < 1) {
-                Intent intent = new Intent(CuocActivity.this, DialogActivity.class);
-                startActivity(intent);
+                Toast.makeText(CuocActivity.this,"Vui lòng chọn mức tiền cược!",Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(CuocActivity.this, DialogActivity.class);
+//                startActivity(intent);
                 return;
             }
             if (selectedPlayers.size() < 2) {
