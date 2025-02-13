@@ -172,7 +172,9 @@ public class RaceActivity extends AppCompatActivity {
         }
 
         resultIntent.putExtra("winner", winner); // Truyền con chó đã win
-
+         ImageView imageViewRaceBg = findViewById(R.id.imageViewRaceBg);
+        Glide.with(this)
+         .clear(imageViewRaceBg);
         btnViewKetQua.setVisibility(View.VISIBLE);
 
         btnViewKetQua.setOnClickListener(new View.OnClickListener() {
