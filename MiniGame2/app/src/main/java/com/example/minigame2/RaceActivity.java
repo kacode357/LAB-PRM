@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.bumptech.glide.Glide;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +35,11 @@ public class RaceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_race);
         EdgeToEdge.enable(this);
-
+        ImageView imageViewRaceBg = findViewById(R.id.imageViewRaceBg);
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.looprace)
+                .into(imageViewRaceBg);
         MediaPlayer sound = MediaPlayer.create(this, R.raw.race_sound);
         sound.start();
 
@@ -56,9 +62,9 @@ public class RaceActivity extends AppCompatActivity {
         currentMoney = getIntent().getIntExtra("currentMoney", 1000);
 
         // Hiển thị thông tin về các con chó đã chọn và tiền cược
-        StringBuilder selectedPlayersText = new StringBuilder("Chó đã chọn:\n");
+        StringBuilder selectedPlayersText = new StringBuilder("Chó đã chọn:");
         for (Player player : selectedPlayers) {
-            selectedPlayersText.append(player.getName()).append("\n");
+            selectedPlayersText.append(player.getName()).append(", ");
         }
 
         // Cập nhật thông tin hiển thị

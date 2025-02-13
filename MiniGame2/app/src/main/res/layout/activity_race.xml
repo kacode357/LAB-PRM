@@ -4,10 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@drawable/race_bg"
-    >
+    android:padding="16dp">
 
+    <!-- Các TextView nằm ở trên cùng -->
     <TextView
         android:id="@+id/textViewRaceInfo"
         android:layout_width="wrap_content"
@@ -24,88 +23,102 @@
         android:text="Số tiền cược"
         android:textSize="16sp" />
 
-    <!-- FrameLayout để chồng các con chó lên nhau -->
+    <!-- FrameLayout để chứa GIF và các con chó -->
     <FrameLayout
-        android:id="@+id/dogLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <!-- Các Lottie Animation Views cho các con chó -->
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieAnimationView1"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:translationY="0dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            android:scaleX="-1"
-            app:lottie_rawRes="@raw/conchoso1" />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieAnimationView2"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:translationY="20dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            android:scaleX="-1"
-            app:lottie_rawRes="@raw/conchoso2" />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieAnimationView3"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:translationY="40dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            android:scaleX="-1"
-            app:lottie_rawRes="@raw/conchoso3" />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieAnimationView4"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:translationY="60dp"
-            app:lottie_autoPlay="true"
-
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/conchoso4" />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieAnimationView5"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:translationY="80dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/conchoso5" />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieAnimationView6"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:translationY="100dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            android:scaleX="-1"
-            app:lottie_rawRes="@raw/conchoso6" />
-
-        <LinearLayout
+        <!-- ImageView để hiển thị GIF (nằm phía dưới) -->
+        <ImageView
+            android:id="@+id/imageViewRaceBg"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+        android:src="@drawable/looprace" />
 
-            <Button
-                android:id="@+id/btnViewKetQua"
-                android:layout_width="wrap_content"
+        <!-- FrameLayout chứa các con chó -->
+        <FrameLayout
+            android:id="@+id/dogLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Các Lottie Animation Views cho các con chó -->
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationView1"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:translationY="100dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:scaleX="-1"
+                app:lottie_rawRes="@raw/conchoso1" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationView2"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:translationY="120dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:scaleX="-1"
+                app:lottie_rawRes="@raw/conchoso2" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationView3"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:translationY="140dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:scaleX="-1"
+                app:lottie_rawRes="@raw/conchoso3" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationView4"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:translationY="160dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/conchoso4" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationView5"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:translationY="180dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/conchoso5" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationView6"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:translationY="200dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:scaleX="-1"
+                app:lottie_rawRes="@raw/conchoso6" />
+
+            <!-- Nút xem kết quả -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingHorizontal="30dp"
-                android:text="XEM kết quả"
-                android:visibility="invisible"
-                />
-        </LinearLayout>
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnViewKetQua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="30dp"
+                    android:text="XEM kết quả"
+                    android:visibility="invisible"
+                    />
+            </LinearLayout>
+        </FrameLayout>
     </FrameLayout>
 
     <!-- SeekBar điều khiển đua -->

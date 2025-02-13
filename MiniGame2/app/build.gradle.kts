@@ -39,6 +39,8 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation ("com.airbnb.android:lottie:6.0.0")
     implementation("com.squareup.picasso:picasso:2.71828")
+    implementation ("com.github.bumptech.glide:glide:4.13.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.13.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
