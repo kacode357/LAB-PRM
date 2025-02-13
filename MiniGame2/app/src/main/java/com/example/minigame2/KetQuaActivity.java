@@ -1,6 +1,7 @@
 package com.example.minigame2;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,6 +42,9 @@ public class KetQuaActivity extends AppCompatActivity {
         currentBet = intent.getIntExtra("currentBet", 0);
         updatedMoney = intent.getIntExtra("updatedMoney", 0);
         allPlayers = (List<Player>) getIntent().getSerializableExtra("allPlayers");
+
+        MediaPlayer sound = MediaPlayer.create(this, R.raw.win_sound);
+        sound.start();
 
         // Kiểm tra nếu chỉ có 1 con chó cá cược, sẽ hiển thị giao diện mới
         if (yourChoice2 == null || yourChoice2.isEmpty()) {
