@@ -86,9 +86,9 @@ public class CuocActivity extends AppCompatActivity {
         buttonStartRace.setOnClickListener(v -> {
             List<Integer> selectedPlayers = playerAdapter.getSelectedPositions();
             if (currentBet < 1) {
-                Toast.makeText(CuocActivity.this,"Vui lòng chọn mức tiền cược!",Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(CuocActivity.this, DialogActivity.class);
-//                startActivity(intent);
+
+                Intent intent = new Intent(CuocActivity.this, DialogActivity.class);
+                startActivity(intent);
                 return;
             }
             if (selectedPlayers.size() < 2) {

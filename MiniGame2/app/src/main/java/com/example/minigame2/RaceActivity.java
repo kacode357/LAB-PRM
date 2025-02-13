@@ -144,9 +144,17 @@ public class RaceActivity extends AppCompatActivity {
         resultIntent.putExtra("allPlayers", (java.io.Serializable) allPlayers);
         resultIntent.putExtra("updatedMoney", currentMoney);  // Truyền lại số tiền cập nhật
         resultIntent.putExtra("currentBet", currentBet);  // Truyền lại số tiền đã cược
-        resultIntent.putExtra("yourChoice1", selectedPlayers.get(0).getName()); // Truyền con chó đã chọn
-        resultIntent.putExtra("yourChoice2", selectedPlayers.get(1).getName()); // Truyền con chó đã chọn
+
+// Kiểm tra số lượng con chó đã chọn
+        if (selectedPlayers.size() > 0) {
+            resultIntent.putExtra("yourChoice1", selectedPlayers.get(0).getName()); // Truyền con chó đầu tiên đã chọn
+        }
+        if (selectedPlayers.size() > 1) {
+            resultIntent.putExtra("yourChoice2", selectedPlayers.get(1).getName()); // Truyền con chó thứ hai đã chọn (nếu có)
+        }
+
         resultIntent.putExtra("winner", winner); // Truyền con chó đã win
+
         btnViewKetQua.setVisibility(View.VISIBLE);
 
         btnViewKetQua.setOnClickListener(new View.OnClickListener() {
@@ -156,8 +164,7 @@ public class RaceActivity extends AppCompatActivity {
             }
         });
 
-        setResult(RESULT_OK, resultIntent);  // Trả kết quả lại cho CuocActivity
-//        startActivity(resultIntent);
+        setResult(RESULT_OK, resultIntent);
     }
 
     // Hàm di chuyển chó từ trái sang phải với tốc độ

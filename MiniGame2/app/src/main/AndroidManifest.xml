@@ -28,16 +28,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".CuocActivity" />
-        <activity
-            android:name=".MaxSelectionDialogActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".RaceActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        />
-        <activity
-            android:name=".DialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".MaxSelectionDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".RaceActivity"/>
+        <activity android:name=".DialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
     </application>
 
 </manifest>
