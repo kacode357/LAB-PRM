@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/race_bg"
+    >
 
     <TextView
         android:id="@+id/textViewRaceInfo"
@@ -37,6 +39,7 @@
             android:translationY="0dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
+            android:scaleX="-1"
             app:lottie_rawRes="@raw/conchoso1" />
 
         <com.airbnb.lottie.LottieAnimationView
@@ -46,6 +49,7 @@
             android:translationY="20dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
+            android:scaleX="-1"
             app:lottie_rawRes="@raw/conchoso2" />
 
         <com.airbnb.lottie.LottieAnimationView
@@ -55,6 +59,7 @@
             android:translationY="40dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
+            android:scaleX="-1"
             app:lottie_rawRes="@raw/conchoso3" />
 
         <com.airbnb.lottie.LottieAnimationView
@@ -83,7 +88,24 @@
             android:translationY="100dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
+            android:scaleX="-1"
             app:lottie_rawRes="@raw/conchoso6" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnViewKetQua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingHorizontal="30dp"
+                android:text="XEM kết quả"
+                android:visibility="invisible"
+                />
+        </LinearLayout>
     </FrameLayout>
 
     <!-- SeekBar điều khiển đua -->

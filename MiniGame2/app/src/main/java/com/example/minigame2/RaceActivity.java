@@ -3,29 +3,39 @@ package com.example.minigame2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.airbnb.lottie.LottieAnimationView;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.List;
 
 public class RaceActivity extends AppCompatActivity {
 
     private TextView textViewRaceInfo, textViewBetInfo;
+    private Button btnViewKetQua;
     private LottieAnimationView lottieAnimationView1, lottieAnimationView2, lottieAnimationView3, lottieAnimationView4, lottieAnimationView5, lottieAnimationView6;
     private Handler handler = new Handler();
     private int progress1 = 0, progress2 = 0, progress3 = 0, progress4 = 0, progress5 = 0, progress6 = 0;
     private int speed1, speed2, speed3, speed4, speed5, speed6;
     private boolean raceFinished = false;  // Biến kiểm tra đã kết thúc cuộc đua
     private int currentMoney;
+    private List<Player> allPlayers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_race);
+        EdgeToEdge.enable(this);
 
         textViewRaceInfo = findViewById(R.id.textViewRaceInfo);
         textViewBetInfo = findViewById(R.id.textViewBetInfo);
+        btnViewKetQua = findViewById(R.id.btnViewKetQua);
 
         // LottieAnimationViews cho các con chó
         lottieAnimationView1 = findViewById(R.id.lottieAnimationView1);
@@ -37,6 +47,7 @@ public class RaceActivity extends AppCompatActivity {
 
         // Nhận danh sách các con chó đã chọn và tiền cược
         List<Player> selectedPlayers = (List<Player>) getIntent().getSerializableExtra("selectedPlayers");
+        allPlayers = (List<Player>) getIntent().getSerializableExtra("allPlayers");
         int currentBet = getIntent().getIntExtra("currentBet", 0);
         currentMoney = getIntent().getIntExtra("currentMoney", 1000);
 
@@ -51,12 +62,13 @@ public class RaceActivity extends AppCompatActivity {
         textViewBetInfo.setText("Số tiền cược: " + currentBet + "$");
 
         // Gán tốc độ cho mỗi con chó (giảm tốc độ xuống)
-        speed1 = (int) (Math.random() * 3) + 1;
-        speed2 = (int) (Math.random() * 3) + 1;
-        speed3 = (int) (Math.random() * 3) + 1;
-        speed4 = (int) (Math.random() * 3) + 1;
-        speed5 = (int) (Math.random() * 3) + 1;
-        speed6 = (int) (Math.random() * 3) + 1;
+        int pathLength = 3;
+        speed1 = (int) (Math.random() * pathLength) + 1;
+        speed2 = (int) (Math.random() * pathLength) + 1;
+        speed3 = (int) (Math.random() * pathLength) + 1;
+        speed4 = (int) (Math.random() * pathLength) + 1;
+        speed5 = (int) (Math.random() * pathLength) + 1;
+        speed6 = (int) (Math.random() * pathLength) + 1;
 
         // Bắt đầu tự động di chuyển các con chó
         startRace(selectedPlayers, currentBet);
@@ -120,17 +132,32 @@ public class RaceActivity extends AppCompatActivity {
         // Cập nhật số tiền
         if (isWinnerSelected) {
             Toast.makeText(RaceActivity.this, "Chúc mừng! Bạn thắng với " + winner + " và số tiền cược là " + currentBet + "$", Toast.LENGTH_SHORT).show();
-            currentMoney += currentBet*2; // Người chơi thắng, cộng tiền cược
+            currentMoney += currentBet * 2; // Người chơi thắng, cộng tiền cược
         } else {
             Toast.makeText(RaceActivity.this, "Tiếc quá, bạn thua. " + winner + " đã về đích!", Toast.LENGTH_SHORT).show();
             // Người chơi thua, không thay đổi số tiền
         }
 
         // Trả lại kết quả về CuocActivity
-        Intent resultIntent = new Intent();
+//        Intent resultIntent = new Intent();
+        Intent resultIntent = new Intent(RaceActivity.this, KetQuaActivity.class);
+        resultIntent.putExtra("allPlayers", (java.io.Serializable) allPlayers);
         resultIntent.putExtra("updatedMoney", currentMoney);  // Truyền lại số tiền cập nhật
+        resultIntent.putExtra("currentBet", currentBet);  // Truyền lại số tiền đã cược
+        resultIntent.putExtra("yourChoice1", selectedPlayers.get(0).getName()); // Truyền con chó đã chọn
+        resultIntent.putExtra("yourChoice2", selectedPlayers.get(1).getName()); // Truyền con chó đã chọn
+        resultIntent.putExtra("winner", winner); // Truyền con chó đã win
+        btnViewKetQua.setVisibility(View.VISIBLE);
+
+        btnViewKetQua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(resultIntent);
+            }
+        });
+
         setResult(RESULT_OK, resultIntent);  // Trả kết quả lại cho CuocActivity
-        finish();  // Kết thúc RaceActivity và quay lại CuocActivity
+//        startActivity(resultIntent);
     }
 
     // Hàm di chuyển chó từ trái sang phải với tốc độ
