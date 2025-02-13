@@ -19,11 +19,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <!-- Register Button -->
     <Button
-        android:id="@+id/buttonVaoCuoc"
+        android:id="@+id/buttonRegister"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Vào cược"
+        android:text="Create Account"
+        android:background="@drawable/button_border"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@id/buttonLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp" />
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
         android:background="@drawable/button_border"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"

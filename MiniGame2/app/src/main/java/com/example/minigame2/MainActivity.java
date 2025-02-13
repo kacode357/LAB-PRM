@@ -20,14 +20,18 @@ public class MainActivity extends AppCompatActivity {
         MediaPlayer sound = MediaPlayer.create(this, R.raw.lofi_chosua);
         sound.start();
 
-        Button buttonVaoCuoc = findViewById(R.id.buttonVaoCuoc);
-        buttonVaoCuoc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Chuyển đến màn hình CuocActivity khi nhấn nút "Vào cược"
-                Intent intent = new Intent(MainActivity.this, CuocActivity.class);
-                startActivity(intent);
-            }
+        // Register Button
+        Button buttonRegister = findViewById(R.id.buttonRegister);
+        buttonRegister.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+            startActivity(intent);
+        });
+
+        // Login Button
+        Button buttonLogin = findViewById(R.id.buttonLogin);
+        buttonLogin.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
         });
     }
 }
