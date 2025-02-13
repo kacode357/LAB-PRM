@@ -1,6 +1,7 @@
 package com.example.minigame2;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -32,6 +33,9 @@ public class RaceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_race);
         EdgeToEdge.enable(this);
+
+        MediaPlayer sound = MediaPlayer.create(this, R.raw.race_sound);
+        sound.start();
 
         textViewRaceInfo = findViewById(R.id.textViewRaceInfo);
         textViewBetInfo = findViewById(R.id.textViewBetInfo);

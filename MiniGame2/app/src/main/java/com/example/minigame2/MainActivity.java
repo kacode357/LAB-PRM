@@ -1,6 +1,7 @@
 package com.example.minigame2;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        MediaPlayer sound = MediaPlayer.create(this, R.raw.lofi_chosua);
+        sound.start();
 
         Button buttonVaoCuoc = findViewById(R.id.buttonVaoCuoc);
         buttonVaoCuoc.setOnClickListener(new View.OnClickListener() {
