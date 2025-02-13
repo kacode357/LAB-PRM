@@ -22,8 +22,8 @@ public class RaceActivity extends AppCompatActivity {
     private Button btnViewKetQua;
     private LottieAnimationView lottieAnimationView1, lottieAnimationView2, lottieAnimationView3, lottieAnimationView4, lottieAnimationView5, lottieAnimationView6;
     private Handler handler = new Handler();
-    private int progress1 = 0, progress2 = 0, progress3 = 0, progress4 = 0, progress5 = 0, progress6 = 0;
-    private int speed1, speed2, speed3, speed4, speed5, speed6;
+    private double progress1 = 0, progress2 = 0, progress3 = 0, progress4 = 0, progress5 = 0, progress6 = 0;
+    private double speed1, speed2, speed3, speed4, speed5, speed6;
     private boolean raceFinished = false;  // Biến kiểm tra đã kết thúc cuộc đua
     private int currentMoney;
     private List<Player> allPlayers;
@@ -66,13 +66,20 @@ public class RaceActivity extends AppCompatActivity {
         textViewBetInfo.setText("Số tiền cược: " + currentBet + "$");
 
         // Gán tốc độ cho mỗi con chó (giảm tốc độ xuống)
-        int pathLength = 3;
-        speed1 = (int) (Math.random() * pathLength) + 1;
-        speed2 = (int) (Math.random() * pathLength) + 1;
-        speed3 = (int) (Math.random() * pathLength) + 1;
-        speed4 = (int) (Math.random() * pathLength) + 1;
-        speed5 = (int) (Math.random() * pathLength) + 1;
-        speed6 = (int) (Math.random() * pathLength) + 1;
+        double pathLength = 3;
+//        speed1 = (int) (Math.random() * pathLength) + 1;
+//        speed2 = (int) (Math.random() * pathLength) + 1;
+//        speed3 = (int) (Math.random() * pathLength) + 1;
+//        speed4 = (int) (Math.random() * pathLength) + 1;
+//        speed5 = (int) (Math.random() * pathLength) + 1;
+//        speed6 = (int) (Math.random() * pathLength) + 1;
+
+        speed1 = (Math.random() * pathLength) + 1;
+        speed2 = (Math.random() * pathLength) + 1;
+        speed3 = (Math.random() * pathLength) + 1;
+        speed4 = (Math.random() * pathLength) + 1;
+        speed5 = (Math.random() * pathLength) + 1;
+        speed6 = (Math.random() * pathLength) + 1;
 
         // Bắt đầu tự động di chuyển các con chó
         startRace(selectedPlayers, currentBet);
@@ -94,12 +101,13 @@ public class RaceActivity extends AppCompatActivity {
                 moveDog(lottieAnimationView6, progress6, speed6);
 
                 // Cập nhật tiến trình cho các con chó
-                progress1 += speed1;
-                progress2 += speed2;
-                progress3 += speed3;
-                progress4 += speed4;
-                progress5 += speed5;
-                progress6 += speed6;
+                double slow = 8;
+                progress1 += speed1 / slow;
+                progress2 += speed2 / slow;
+                progress3 += speed3 / slow;
+                progress4 += speed4 / slow;
+                progress5 += speed5 / slow;
+                progress6 += speed6 / slow;
 
                 // Nếu tiến trình của bất kỳ con chó nào đạt 200, kết thúc cuộc đua
                 if (progress1 >= 200 || progress2 >= 200 || progress3 >= 200 || progress4 >= 200 || progress5 >= 200 || progress6 >= 200) {
@@ -172,9 +180,9 @@ public class RaceActivity extends AppCompatActivity {
     }
 
     // Hàm di chuyển chó từ trái sang phải với tốc độ
-    private void moveDog(LottieAnimationView dogAnimationView, int progress, int speed) {
+    private void moveDog(LottieAnimationView dogAnimationView, double progress, double speed) {
         if (progress <= 200) {  // Đặt mục tiêu 200 để làm đường đua ngắn hơn
-            dogAnimationView.setTranslationX(progress * 10); // Di chuyển con chó, với giá trị * 10 để kéo dài đường đua
+            dogAnimationView.setTranslationX((float) (progress * 10.0)); // Di chuyển con chó, với giá trị * 10 để kéo dài đường đua
         }
     }
 }
