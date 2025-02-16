@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class Question2Lab3Activity extends AppCompatActivity {
     private EditText edtTen, edtMota, edtUrlHinh;
-    private Button btnThem, btnCapNhat, btnBack;
+    private Button btnThem, btnCapNhat, btnBack, btnXoa;
     private ListView lvTraiCay;
     private ArrayList<TraiCay> arrayTraiCay;
     private TraiCayAdapter adapter;
@@ -38,6 +38,23 @@ public class Question2Lab3Activity extends AppCompatActivity {
             edtMota.setText(selectedItem.getMota());
             edtUrlHinh.setText(selectedItem.getHinh());
             selectedPosition = position;
+        });
+        // Xóa trái cây đã chọn
+        btnXoa.setOnClickListener(v -> {
+            if (selectedPosition == -1) {
+                Toast.makeText(this, "Hãy chọn một trái cây để xóa!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Remove the selected fruit from the list
+            arrayTraiCay.remove(selectedPosition);
+            adapter.notifyDataSetChanged();  // Notify the adapter to update the ListView
+
+            // Clear the EditTexts and reset selected position
+            edtTen.setText("");
+            edtMota.setText("");
+            edtUrlHinh.setText("");
+            selectedPosition = -1;
         });
 
         // Nhấn giữ để xóa ngay lập tức
@@ -95,6 +112,7 @@ public class Question2Lab3Activity extends AppCompatActivity {
         btnThem = findViewById(R.id.btnThem);
         btnCapNhat = findViewById(R.id.btnCapNhat);
         btnBack = findViewById(R.id.btnBackQuestion2Lab3);
+        btnXoa = findViewById(R.id.btnXoa);
         arrayTraiCay = new ArrayList<>();
 
         arrayTraiCay.add(new TraiCay("Chuối tiêu", "Chuối tiêu Long An", "https://upload.wikimedia.org/wikipedia/commons/9/9b/Cavendish_Banana_DS.jpg"));

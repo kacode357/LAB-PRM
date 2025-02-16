@@ -41,5 +41,15 @@ public class Lab4Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Xử lý sự kiện khi nhấn vào "Bài tập làm thêm số 2"
+        TextView tvExtraExercise2 = findViewById(R.id.tvExtraExercise2Lab4);
+        tvExtraExercise2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Lab4Activity.this, ExtraExercise2Lab4Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

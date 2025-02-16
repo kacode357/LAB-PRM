@@ -13,8 +13,11 @@ import java.util.Random;
 
 public class Question1Lab2Activity extends AppCompatActivity {
     private EditText minInput, maxInput;
-    private TextView resultText;
+    private TextView resultText, resultTextDetails;
     private Button generateButton, btnBack;
+
+    // Define a constant for the maximum allowed value
+    private static final int MAX_ALLOWED_VALUE = 1000000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,7 @@ public class Question1Lab2Activity extends AppCompatActivity {
         minInput = findViewById(R.id.minInput);
         maxInput = findViewById(R.id.maxInput);
         resultText = findViewById(R.id.resultText);
+        resultTextDetails = findViewById(R.id.resultTextDetail);
         generateButton = findViewById(R.id.generateButton);
         btnBack = findViewById(R.id.btnBackQuestion1Lab2);
 
@@ -54,11 +58,19 @@ public class Question1Lab2Activity extends AppCompatActivity {
             int min = Integer.parseInt(minStr);
             int max = Integer.parseInt(maxStr);
 
+            // Kiểm tra nếu Max không vượt quá giá trị tối đa cho phép
+            if (max > MAX_ALLOWED_VALUE) {
+                Toast.makeText(this, "Error: Max cannot be greater than " + MAX_ALLOWED_VALUE, Toast.LENGTH_SHORT).show();
+                return; // Dừng hàm nếu Max vượt quá giới hạn
+            }
+
             // Đảm bảo min nhỏ hơn max
             if (min < max) {
                 Random random = new Random();
                 int randomNumber = random.nextInt((max - min) + 1) + min; // Random số từ min đến max
-                resultText.setText("Result: " + randomNumber);
+                resultText.setText(String.valueOf(randomNumber));
+
+                resultTextDetails.setText("Min: " + min + ", Max: " + max);
             } else {
                 resultText.setText("Error: Min must be less than Max!");
             }

@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/imageviewDrink"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="10dp" />
+
+    <TextView
+        android:id="@+id/textviewDrinkName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageviewDrink"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"
+        android:text="Tên đồ uống" />
+
+    <TextView
+        android:id="@+id/textviewDrinkDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textviewDrinkName"
+        android:layout_toEndOf="@id/imageviewDrink"
+        android:textSize="18sp"
+        android:text="Mô tả đồ uống" />
+
+    <TextView
+        android:id="@+id/textviewDrinkPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textviewDrinkDescription"
+        android:layout_toEndOf="@id/imageviewDrink"
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:text="Giá: 30,000 VND"
+        android:layout_marginTop="5dp" />
+
+    <!-- Nút giảm số lượng -->
+    <Button
+        android:id="@+id/btnMinus"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_below="@id/textviewDrinkPrice"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="251dp"
+        android:layout_marginTop="-2dp"
+        android:text="-" />
+
+    <!-- Số lượng -->
+    <TextView
+        android:id="@+id/textviewQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnMinus"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="-30dp"
+        android:layout_marginEnd="9dp"
+        android:layout_toStartOf="@+id/btnPlus"
+        android:layout_toEndOf="@+id/btnMinus"
+        android:text="0"
+        android:textSize="18sp" />
+
+    <!-- Nút tăng số lượng -->
+    <Button
+        android:id="@+id/btnPlus"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_below="@id/textviewDrinkPrice"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="5dp"
+        android:text="+" />
+</RelativeLayout>

@@ -41,5 +41,14 @@ public class Lab3Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // Xử lý sự kiện khi nhấn vào "Question 3"
+        TextView tvQuestion3 = findViewById(R.id.tvQuestion3Lab3);
+        tvQuestion3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Lab3Activity.this, Question3Lab3Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

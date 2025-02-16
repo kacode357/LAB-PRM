@@ -1,16 +1,14 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main"
-   >
+    android:padding="10dp">
 
     <!-- Tiêu đề -->
     <TextView
-        android:id="@+id/tvTitleQuestion2Lab3"
+        android:id="@+id/tvTitleQuestion3Lab3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Question 2"
+        android:text="Soccer Player Management"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
@@ -22,7 +20,7 @@
 
     <!-- Nút quay lại -->
     <Button
-        android:id="@+id/btnBackQuestion2Lab3"
+        android:id="@+id/btnBackQuestion3Lab3"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="@drawable/bg_round_button"
@@ -39,10 +37,10 @@
         android:id="@+id/edtTen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvTitleQuestion2Lab3"
+        android:layout_below="@id/tvTitleQuestion3Lab3"
         android:layout_marginTop="10dp"
         android:background="@android:drawable/editbox_background"
-        android:hint="Nhập tên trái cây"
+        android:hint="Enter Player Name"
         android:minHeight="48dp"
         android:padding="8dp" />
 
@@ -54,7 +52,7 @@
         android:layout_below="@id/edtTen"
         android:layout_marginTop="10dp"
         android:background="@android:drawable/editbox_background"
-        android:hint="Nhập mô tả"
+        android:hint="Enter Description"
         android:minHeight="48dp"
         android:padding="8dp" />
 
@@ -66,7 +64,7 @@
         android:layout_below="@id/edtMota"
         android:layout_marginTop="10dp"
         android:background="@android:drawable/editbox_background"
-        android:hint="Nhập URL hình ảnh"
+        android:hint="Enter Image URL"
         android:minHeight="48dp"
         android:padding="8dp" />
 
@@ -75,13 +73,15 @@
         android:id="@+id/btnThem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thêm"
+        android:text="Add Player"
         android:padding="8dp"
         android:backgroundTint="@android:color/holo_green_light"
         android:layout_below="@id/edtUrlHinh"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"/>
+
     <!-- Nút Xóa -->
+
     <!-- Nút Cập nhật -->
 
     <Button
@@ -90,27 +90,28 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/edtUrlHinh"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="158dp"
+        android:layout_marginStart="126dp"
         android:layout_marginTop="9dp"
         android:layout_toEndOf="@id/btnThem"
         android:backgroundTint="@android:color/holo_red_light"
         android:padding="8dp"
-        android:text="Delete" />
+        android:text="Delete Player" />
 
     <Button
         android:id="@+id/btnCapNhat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cập nhật"
+        android:text="Update Player"
         android:padding="8dp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:layout_below="@id/edtUrlHinh"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"/>
 
-    <!-- ListView hiển thị danh sách trái cây -->
+
+    <!-- ListView hiển thị danh sách cầu thủ bóng đá -->
     <ListView
-        android:id="@+id/listviewTraiCay"
+        android:id="@+id/listviewCauThuBongDa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnThem"

@@ -35,16 +35,22 @@
 
         <activity android:name=".Question1Lab2Activity"/>
         <activity android:name=".Question2Lab2Activity"/>
-<!--        <activity android:name=".Question3Lab2Activity"/>-->
         <activity android:name=".SignInActivityLab2"/>
         <activity android:name=".SignUpActivityLab2"/>
         <activity android:name=".Question1Lab3Activity"/>
         <activity android:name=".Question2Lab3Activity"/>
+        <activity android:name=".Question3Lab3Activity"/>
 
         <activity android:name=".Lab4Activity"/>
         <activity android:name=".Question1Lab4Activity"/>
         <activity android:name=".ExtraExerciseLab4Activity"/>
+        <activity android:name=".ExtraExercise2Lab4Activity"/>
         <activity android:name=".NewActivityLab4Activity"/>
+        <activity android:name=".ShowNumberActivity"/>
+        <activity android:name=".ShowStringActivity"/>
+        <activity android:name=".ShowArrayActivity"/>
+        <activity android:name=".ShowStudentActivity"/>
+        <activity android:name=".ShowBundleActivity"/>
 
         <activity android:name=".SelectDrinkActivity"/>
         <activity android:name=".SelectFoodActivity"/>
